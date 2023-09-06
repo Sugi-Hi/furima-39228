@@ -1,28 +1,5 @@
 # README
 
-<!-- This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ... -->
-
 
 # DB(Model関連Tabel)設計
 
@@ -34,12 +11,12 @@ Things you may want to cover:
 | ------------------ | -------- | ------------------------- |
 | nickname           | string   | null: false             	|
 | email              | string   | null: false, unique: true	|
-| encrypted_password | string   | null: false, unique: true |
+| encrypted_password | string   | null: false               |
 | first_name         | string   | null: false             	|
 | last_name          | string   | null: false             	|
 | first_name_kana    | string   | null: false             	|
 | last_name_kana     | string   | null: false             	|
-| birth_date         | datatime | null: false             	|
+| birth_date         | datetime | null: false             	|
 
 
 ### Association
@@ -50,11 +27,16 @@ Things you may want to cover:
 
 ## items(商品出品機能) Table
 
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| name      | string     | null: false                    |
-| price     | integer    | null: false                    |
-| user      | references | null: false, foreign_key: true |
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| brand      | string     | null: false                    |
+| price      | integer    | null: false                    |
+| image      | text       | null: false                    |
+| user       | references | null: false, foreign_key: true |
+| category   | string     | null: false                    |
+| situation  | text       | null: false                    |
+| area       | string     | null: false                    |
+| send_date  | datetime   | null: false                    |
 
 
 ### Association
@@ -64,16 +46,23 @@ Things you may want to cover:
 
 
 ## orders(商品購入機能) Table
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| pay       | integer    | null: false                    |
-| user      | references | null: false, foreign_key: true |
-| item      | references | null: false, foreign_key: true |
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| user        | references | null: false, foreign_key: true |
+| item        | references | null: false, foreign_key: true |
+<!-- 決済：クレジットカード決済代行サービス[pay.jp] -->
 
 ### Association
-- has_one :user
-- has_one :order
+- belongs_to :user 
+- has_many :items
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
------使用検討中-----
-## deliverys Table
+
+## deliveries Table
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| post_number | integer    | null: false                    |
+| prefecture  | string     | null: false                    |
+| city        | string     | null: false                    |
+| tawn        | string     | null: false                    |
+| tel_number  | integer    | null: false                    |
