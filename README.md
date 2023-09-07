@@ -20,10 +20,8 @@
 
 
 ### Association
-
 - has_many :items
 - has_many :orders
-- belongs_to :delivery
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -37,15 +35,14 @@
 | explain     | text       | null: false                    |
 | category_id | integer    | null: false                    |
 | state_id    | integer    | null: false                    |
+| postfee_id  | integer    | null: false                    |
 | area_id     | integer    | null: false                    |
-| send_id     | integer    | null: false                    |
+| shipdate_id | integer    | null: false                    |
 
 
 ### Association
 - belongs_to :user
-
-- has_one :order
-- belongs_to :delivery
+- has_one :order ,dependent: 
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -59,8 +56,7 @@
 ### Association
 - belongs_to :user 
 - has_many :items
-
-- belongs_to :delivery
+- belongs_to :delivery dependent:
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -68,13 +64,10 @@
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
 | post_number | string     | null: false                    |
-| area_id     | integer    | null: false                    |
 | city        | string     | null: false                    |
 | tawn        | string     | null: false                    |
 | bulid       | string     | null: false                    |
 | tel_number  | string     | null: false                    |
 
 ### Association
-- belongs_to :user 
-- has_many :items
 - belongs_to :order
