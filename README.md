@@ -16,32 +16,36 @@
 | last_name          | string   | null: false             	|
 | first_name_kana    | string   | null: false             	|
 | last_name_kana     | string   | null: false             	|
-| birth_date         | datetime | null: false             	|
+| birth_date         | date     | null: false             	|
 
 
 ### Association
+
 - has_many :items
 - has_many :orders
+- belongs_to :delivery
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
 ## items(商品出品機能) Table
 
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| brand      | string     | null: false                    |
-| price      | integer    | null: false                    |
-| image      | text       | null: false                    |
-| user       | references | null: false, foreign_key: true |
-| category   | string     | null: false                    |
-| situation  | text       | null: false                    |
-| area       | string     | null: false                    |
-| send_date  | datetime   | null: false                    |
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| item_name   | string     | null: false                    |
+| price       | integer    | null: false                    |
+| user        | references | null: false, foreign_key: true |
+| explain     | text       | null: false                    |
+| category_id | integer    | null: false                    |
+| state_id    | integer    | null: false                    |
+| area_id     | integer    | null: false                    |
+| send_id     | integer    | null: false                    |
 
 
 ### Association
 - belongs_to :user
+
 - has_one :order
+- belongs_to :delivery
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -55,14 +59,22 @@
 ### Association
 - belongs_to :user 
 - has_many :items
+
+- belongs_to :delivery
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
 ## deliveries Table
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
-| post_number | integer    | null: false                    |
-| prefecture  | string     | null: false                    |
+| post_number | string     | null: false                    |
+| area_id     | integer    | null: false                    |
 | city        | string     | null: false                    |
 | tawn        | string     | null: false                    |
-| tel_number  | integer    | null: false                    |
+| bulid       | string     | null: false                    |
+| tel_number  | string     | null: false                    |
+
+### Association
+- belongs_to :user 
+- has_many :items
+- belongs_to :order
