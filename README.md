@@ -42,7 +42,7 @@
 
 ### Association
 - belongs_to :user
-- has_one :order ,dependent: 
+- has_one :order
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -55,19 +55,21 @@
 
 ### Association
 - belongs_to :user 
-- has_many :items
-- belongs_to :delivery dependent:
+- belongs_to :item
+- has_one :delivery
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
-## deliveries Table
+## deliveries(配送先情報) Table
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
 | post_number | string     | null: false                    |
+| area_id     | integer    | null: false                    |
 | city        | string     | null: false                    |
 | tawn        | string     | null: false                    |
-| bulid       | string     | null: false                    |
+| bulid       | string     |                                |
 | tel_number  | string     | null: false                    |
+| order       | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :order
