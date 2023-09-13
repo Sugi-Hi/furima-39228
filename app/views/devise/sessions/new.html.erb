@@ -12,10 +12,9 @@
      <%= flash[:notice] %>
      <%= flash[:alert]  %>
     </div> 
-    <%# インスタンスにより、エラー発生時メッセージが会員登録と同様にログインも表示される様にします。 %>
+
+    <%# エラー発生時、新規登録の同様に追加メッセージ出るか検証試験 %>
     <%= render 'shared/error_messages' , model: f.object %>
-
-
 
     <div class="form-group">
       <div class='form-text-wrap'>
