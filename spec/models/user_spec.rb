@@ -25,8 +25,12 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include("Email is invalid")
       end
       example 'メールアドレスが重複して一意性でないと登録できません' do
+        @tuser.save
+        @user = FactoryBot.build(:f_user, email: @tuser.email)
+        # @user = @tuser.email
+        # @tuser.valid?
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email is invalid")
+        expect(@user.errors.full_messages).to include("Email has already been taken")
       end
       example 'パスワードが英数6字以上でないと登録できません'  do
         @user.valid?
