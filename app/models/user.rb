@@ -4,35 +4,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # validates :nickname          , presence: { other_than: false , message: "40文字以下で入力して下さい" } 
-  # データベース上migrationファイルで登録済み
-  # validates :email             , presence: { ohter_than: false ,message: "@を含めてて下さい" }
-  # validates :password          , presence: { ohter_than: false ,message: "英字と数字の両方を含めて下さい" }
  
-  # with_options presence: true do
   validates :nickname,              presence: true
-  # presence: { less_than_or_equal_to: 40 , message: ",please input in less than 40" }    
-  # validates :email, format: {with: /\A[a-z0-9@]+\z/i , message: ":input with @"}
-  # validates :password,              presence: {greater_than_or_equal_to: 6,  message: "is too short ,minimum is 6 characters"}
-  # validates :password_confirmation, presence: {equal_to: :password, message: "doesn't match Password"}
+
+  validates :password,        format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
   validates :last_name,       format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: ",please input full-width characters"}
   validates :first_name,      format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: ",please input full-width characters"}
   validates :last_name_kana , format: {with: /\A[ァ-ヶー]+\z/,   message:",please input full-width katakana"}
   validates :first_name_kana, format: {with: /\A[ァ-ヶー]+\z/,   message:",please input full-width katakana"}
 
   validates :birth_date,            presence: true
-  # numericality: {only_integer: true, greater_than_or_equal_to: 1930, less_than_or_equal_to: 2018, message:",please select all"}
-  # end
 
 
   
-  # , presence: true
-  # def at_mark
-  #   if email.includes("@")
-  #     return true
-  #   else
-  #     return false
-  #   end
-  # end
-
 end
