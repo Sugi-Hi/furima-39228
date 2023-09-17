@@ -9,8 +9,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer     :postfee_id   , null: false
       t.integer     :area_id      , null: false
       t.integer     :shipdate_id  , null: false
-      t.integer     :user         , null: false
-      # t.references  :user         , null: false, foreign_key: true
+      t.references  :user         , null: false, foreign_key: true
 
       t.timestamps
     end
