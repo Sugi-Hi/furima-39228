@@ -46,7 +46,11 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is invalid")
       end
-
+      example '販売価格が半角数字以外の値が含まれると登録できません'  do
+        @item.price = 2751*5.9/6
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price is invalid")
+      end
 
       
       # -----空テスト-----
