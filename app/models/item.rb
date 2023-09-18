@@ -12,11 +12,11 @@ class Item < ApplicationRecord
   validates :price       , numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is invalid"}
 
   validates :explain     , presence: true
-  validates :category_id , numericality: { other_than: 0 } 
-  validates :state_id    , numericality: { other_than: 0 }
-  validates :postfee_id  , numericality: { other_than: 0 }
-  validates :area_id     , numericality: { other_than: 0 }
-  validates :shipdate_id , numericality: { other_than: 0 }
+  validates :category_id , numericality: { other_than: 0, message: "must be other than 0" } 
+  validates :state_id    , numericality: { other_than: 0, message: "must be other than 0" } 
+  validates :postfee_id  , numericality: { other_than: 0, message: "must be other than 0" } 
+  validates :area_id     , numericality: { other_than: 0, message: "must be other than 0" } 
+  validates :shipdate_id , numericality: { other_than: 0, message: "must be other than 0" } 
 
   
   has_one_attached :image
@@ -24,7 +24,6 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one :order
-
 
 
 

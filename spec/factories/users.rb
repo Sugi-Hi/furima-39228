@@ -12,7 +12,7 @@ FactoryBot.define do
   end
 
 
-  factory :t_user, class: User do
+  factory :user, class: User do
     nickname              {"フリマ"}
     email                 {"test@test.com"}
     password              {"test23"}
