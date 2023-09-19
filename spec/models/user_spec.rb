@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   # userの生成インスタンス変数@userをテスト用のみに実験登録
   before do
-    @tuser = FactoryBot.build(:t_user)
+    @t_user = FactoryBot.build(:user)
     @user = FactoryBot.build(:f_user)
 
   end
@@ -13,8 +13,8 @@ RSpec.describe User, type: :model do
     context 'ユーザー新規登録できる場合' do
       # -----正常(異常なしの時)テスト-----
       it 'ニックネーム・メールアドレス・パスワード,(確認も)・お名前(氏,名)・お名前カナ(氏,名)・生年月日が全て存在・規定内でれば登録できます'  do
-        @tuser.valid?
-        expect(@tuser).to be_valid
+        @t_user.valid?
+        expect(@t_user).to be_valid
       end
     end
 
@@ -25,8 +25,8 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include("Email is invalid")
       end
       example 'メールアドレスが重複して一意性でないと登録できません' do
-        @tuser.save
-        @user = FactoryBot.build(:f_user, email: @tuser.email)
+        @t_user.save
+        @user = FactoryBot.build(:f_user, email: @t_user.email)
         @user.valid?
         expect(@user.errors.full_messages).to include("Email has already been taken")
       end
