@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   # before_aciton :item_params , only: [:new, :create, :edit]
 
   def index
-    @items = Item.all
+    @items = Item.all.order("created_at DESC")
   end
 
   def new
@@ -29,6 +29,8 @@ class ItemsController < ApplicationController
   # def destroy
   # end
 
+  def order
+  end
 
   private
   def item_params
