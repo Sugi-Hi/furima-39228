@@ -19,22 +19,7 @@ RSpec.describe Item, type: :model do
     end
 
     context '商品出品できない場合' do
-      # example '商品画像(ファイル画像)と登録できません' do
-      #   @item.image = "写真"
-      #   @item.valid?
-      #   expect(@item.errors.full_messages).to include("Image is invalid")
-      # end
-      # example '商品名が40字越えると登録できません'  do
-      #   @item.item_name = "garaageahaeg24974gadadragaearhaegdfgrhaarheagarg166arg449agrgaeagreavre"
-      #   @item.valid?
-      #   expect(@item.errors.full_messages).to include("")
-      # end
-      # example '商品の説明が1000字超えると登録できません'  do
-      #   @item.explain = Faker::Lorem.sentence(word_count: 10000)
-      #   @item.valid?
-      #   expect(@item.errors.full_messages).to include("")
-      # end
-
+ 
       # -----規定外テスト-----
       example '販売価格が10000000(1000万円)以上だと登録できません'  do
         @item.price = 10000000
