@@ -160,10 +160,16 @@
           </li>
         <% end %>
        <%# 商品が何もない場合、以下のダミー商品の表示 %>
-      <% else %>       
+      <% else %> 
+
         <li class='list'>
           <%= link_to '/items#show' do %>
+          <div class='item-img-content'>
           <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
+            <div class='sold-out'>
+              <span>Sold Out!!</span>
+            </div>
+          </div>
           <div class='item-info'>
             <h3 class='item-name'>
               商品を出品してね！
@@ -178,29 +184,7 @@
           </div>
           <% end %>
         </li>
-        <li class='list'>
-          <%= link_to '/items#show' do %>
-            <div class='item-img-content'>
-            <%= image_tag "item-sample.png", class: "item-img" %>
-              <div class='sold-out'>
-                <span>Sold Out!!</span>
-              </div>
-            </div>   
-  
-          <div class='item-info'>
-            <h3 class='item-name'>
-              商品を出品してね！
-            </h3>
-            <div class='item-price'>
-              <span>9,999円<br>(税込み)</span>
-              <div class='star-btn'>
-                <%= image_tag "star.png", class:"star-icon" %>
-                <span class='star-count'>0</span>
-              </div>
-            </div>
-          </div>
-          <% end %>
-        </li>
+ 
       <% end %> 
     </ul>
   </div>
