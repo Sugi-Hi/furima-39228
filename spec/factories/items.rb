@@ -18,5 +18,3 @@ FactoryBot.define do
 
 end
 
-# explain                 {Faker::Lorem.sentence(word_count: 1000)}
- 
