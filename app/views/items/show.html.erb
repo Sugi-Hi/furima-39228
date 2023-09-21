@@ -19,28 +19,14 @@
       </div>
       <div class="item-price-box">
         <span class="item-price">
-          <%= @item.price %>
+          ￥<%= @item.price %>
         </span>
         <span class="item-postage">
           <%= @item.postfee[:name] %>
         </span>
       </div>
-      <%# 出品商品のないダミー商品の詳細 %>
     <% else %>
-      <div class="item-img-content">
-        <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg" ,class:"item-box-img" %>
-        <div class="sold-out">
-          <span>Sold Out!!</span>
-        </div>
-      </div>
-      <div class="item-price-box">
-        <span class="item-price">
-          ¥ 999,999,999
-        </span>
-        <span class="item-postage">
-          <%= "配送料負担" %>
-        </span>
-      </div>
+ 
     <% end %>
 
     <%# 商品が出品中 %>
@@ -124,9 +110,7 @@
       後ろの商品 ＞
     </a>
   </div>
-  <%# 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
-  <a href="#" class="another-item"><%= "商品のカテゴリー名" %>をもっと見る</a>
-  <%# //詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
-</div>
+    <a href="#" class="another-item"><%= @item.category[:name] %>をもっと見る</a>
+  </div>
 
 <%= render "shared/footer" %>
