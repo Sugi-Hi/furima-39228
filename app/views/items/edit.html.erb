@@ -1,4 +1,4 @@
-<%# cssは商品出品のものを併用しています。
+<%# cssは商品出品のものを併用中
 app/assets/stylesheets/items/new.css %>
 
 <div class="items-sell-contents">
@@ -8,8 +8,7 @@ app/assets/stylesheets/items/new.css %>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with model: @item,local: true do |f| %>
-
-    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+     
     <%= render 'shared/error_messages', model: f.object %>
 
     <%# 商品画像 %>
