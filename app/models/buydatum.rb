@@ -1,17 +1,9 @@
-class Order < ApplicationRecord
+class Buydatum < ApplicationRecord
+  include ActiveModel::Model
+  attr_accessor :token , :price , :user_id, :item_id, :order_id , :post_number , :area_id , :city, :tawn , :build, :tel_number 
 
-  def price=(price) #セッター
-    @order.price = @item.price
-  end
-
-
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :area
-
-  attr_accessor :token , :price
 
   validates :token, presence: true
-  validates :price, presence: true
 
 
   validates :post_number , presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
@@ -19,10 +11,7 @@ class Order < ApplicationRecord
   validates :city            , presence: true
   validates :tawn            , presence: true
   validates :build           , presence: true
-  validates :tel_number  , presence:  {with: /\A[0-9]{11}\z/, message: "is invalid"} 
-  
-  belongs_to :user
-  belongs_to :item
-  has_one :delivery
+  validates :tel_number  , presence:  {with: /\A[0-9]{10}[0-9]{11}\z/, message: "is invalid. Remove hyphen(-)"} 
+
 
 end
