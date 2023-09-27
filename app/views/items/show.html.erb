@@ -12,11 +12,11 @@
       <div class="item-img-content">
         <%= image_tag @item.image ,class:"item-box-img" %>
           <%# 選択商品が売れて出品が無くなるとsold out表示 %>
-          <%# <% if @item.order != nil %> 
-            <%# <div class='sold-out'>
+          <% if @item.order != nil %> 
+            <div class='sold-out'>
               <span>Sold Out!!</span>
-            </div> %>
-          <%# <% end %> 
+            </div>
+          <% end %>
       </div>
       <div class="item-price-box">
         <span class="item-price">
@@ -31,7 +31,7 @@
     <% end %>
 
     <%# 商品が出品中 %>
-    <%# <% if @item.order == nil %> 
+    <% if @item.order == nil %>
       <%# ログイン中ユーザーと出品ユーザーが同一人物の場合、編集・購入ボタン表示有り %>
       <% if user_signed_in? && current_user.id == @item.user[:id] %>
         <%= link_to "商品の編集", edit_item_path(@item) , method: :get, class: "item-red-btn" %>
@@ -39,11 +39,11 @@
         <%= link_to "削除", item_path , method: :delete, class:"item-destroy" %>
       <%# ログイン中ユーザーと出品ユーザーが違う人物場合、購入ボタンのみ表示 %>
       <% elsif user_signed_in? && current_user.id != @item.user[:id]  %>
-        <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
-      <% else %>
+        <%= link_to "購入画面に進む", item_orders_path(@item) ,mehod: :get ,class:"item-red-btn"%>
+      <% else %>  
         <%# ログアウト中は編集・削除・購入ボタン表示無し %>
       <% end %>
-    <%# <% end %> 
+    <% end %>
 
     <div class="item-explain-box">
       <span><%= @item.explain %></span>
