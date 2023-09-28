@@ -4,7 +4,7 @@ class Buydatum < ApplicationRecord
 
 
   validates :token, presence: true
-
+  validates :price, presence: true
 
   validates :post_number , presence: true, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
   validates :area_id     , numericality: { other_than: 0, message: "must be other than 0" } 

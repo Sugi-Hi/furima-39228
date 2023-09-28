@@ -6,13 +6,13 @@ before_action :same_top, only: :index
 
 
   def index
-    @order = Order.new
     @delivery = Delivery.new
   end
 
   def create
     # binding.pry # テストコード用
     @order = Order.new(order_params)
+    @order.price = @item.price
 
     if @order.valid?
       pay_item
@@ -27,12 +27,12 @@ before_action :same_top, only: :index
   private
 
   def order_params
-    params.require(:order).permit(:token , :post_number, :area_id, :city, :tawn, :build, :tel_number ).merge(user_id: current_user.id , item_id: params[:item_id] , token: params[:token])
+    params.require(:order).permit(:token ,:price ,:post_number, :area_id, :city, :tawn, :build, :tel_number ).merge(user_id: current_user.id , item_id: params[:item_id] , token: params[:token])
   end
 
   def set_item
     @item = Item.find(params[:item_id])
-
+    @order = Order.new
   end
 
   def return_signin
