@@ -7,24 +7,26 @@ class Item < ApplicationRecord
   belongs_to :area
   belongs_to :shipdate
 
-
-  validates :item_name   , presence: true
-  validates :price       , numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is invalid"}
-
-  validates :explain     , presence: true
-  validates :category_id , numericality: { other_than: 0, message: "must be other than 0" } 
-  validates :state_id    , numericality: { other_than: 0, message: "must be other than 0" } 
-  validates :postfee_id  , numericality: { other_than: 0, message: "must be other than 0" } 
-  validates :area_id     , numericality: { other_than: 0, message: "must be other than 0" } 
-  validates :shipdate_id , numericality: { other_than: 0, message: "must be other than 0" } 
-
-  
   has_one_attached :image
-  validates :image       , presence: true
+
+  with_options presence: true do
+    validates :image  
+
+    validates :item_name   
+  
+    validates :explain     
+  end
+  with_options presence: true , numericality: { other_than: 0, message: "must be other than 0" } do
+    validates :category_id 
+    validates :state_id     
+    validates :postfee_id  
+    validates :area_id     
+    validates :shipdate_id 
+  end
+    validates :price , presence: true , numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is invalid"}
+
 
   belongs_to :user
   has_one :order
-
-
 
 end
