@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :orders , only: [:index, :create] do
       resources :deliveries , only: :create
     end
-    resources :buydata , only: [:index, :create]
+    resources :order_deliveries , only: [:index, :create]
   end
 
   resources :users

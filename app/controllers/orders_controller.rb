@@ -1,22 +1,24 @@
 class OrdersController < ApplicationController
-before_action :authenticate_user!
-before_action :return_signin, only: :index
-before_action :set_item 
-before_action :same_top, only: :index 
+  before_action :authenticate_user!
+  before_action :set_item_order
+  before_action :same_top, only: :index 
 
 
-  def index
-    @delivery = Delivery.new
+  def index    
+    @order_delivery = OrderDelivery.new
+
   end
 
   def create
     # binding.pry # テストコード用
-    @order = Order.new(order_params)
-    @order.price = @item.price
+    # @order = Order.new(order_params) #Formオブジェクト前の代入!!
+    @order_delivery = OrderDelivery.new(order_params)
+    @order_delivery.price = @item.price
 
-    if @order.valid?
+    if @order_delivery.valid?
       pay_item
-      @order.save
+      @order_delivery.save
+   
       return redirect_to root_path
     else
       render :index
@@ -27,18 +29,14 @@ before_action :same_top, only: :index
   private
 
   def order_params
-    params.require(:order).permit(:token ,:price ,:post_number, :area_id, :city, :tawn, :build, :tel_number ).merge(user_id: current_user.id , item_id: params[:item_id] , token: params[:token])
+    params.require(:order_delivery).permit(:token ,:price ,:post_number, :area_id, :city, :tawn, :build, :tel_number ).merge(user_id: current_user.id , item_id: params[:item_id] , token: params[:token])
   end
 
-  def set_item
+  def set_item_order
     @item = Item.find(params[:item_id])
-    @order = Order.new
-  end
 
-  def return_signin
-    unless user_signed_in?
-      redirect_to new_user_session_path
-    end
+    # @order = Order.new  #Formオブジェクト前の代入!!
+    # @delivery = Delivery.new  #Formオブジェクト前の代入!!
   end
 
   def same_top
