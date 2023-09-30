@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   before_action :another_top, only: [:edit, :destroy ] 
 
   def index
-    @items = Item.all.order("created_at DESC")
+    @items = Item.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -40,6 +40,7 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+
   def order
   end
 
@@ -59,7 +60,7 @@ class ItemsController < ApplicationController
   end
 
   def another_top
-    if current_user.id != @item.user[:id]  #|| @item.order != nil
+    if current_user.id != @item.user[:id]  || @item.order != nil
       redirect_to root_path
     end
   end

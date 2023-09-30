@@ -1,6 +1,9 @@
 class Order < ApplicationRecord
 
-  # belongs_to :user
-  # helongs_to :item
-  
+
+
+  belongs_to :user
+  belongs_to :item
+  has_one :delivery
+
 end

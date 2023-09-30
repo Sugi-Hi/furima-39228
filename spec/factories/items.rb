@@ -1,5 +1,6 @@
 FactoryBot.define do
    factory :item do
+    id                      {"3"}
     image                   {"handbag.png"}
     item_name               {Faker::Commerce.product_name}
     price                   {"1000"}
