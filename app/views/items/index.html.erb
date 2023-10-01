@@ -129,7 +129,7 @@
     <ul class='item-lists'>
 
         <%# 商品がある場合、以下に全商品を一般公開 %>
-      <% if @items != nil %>
+      <% if @items.any? %>
         <% @items.each do |item| %>
            <li class='list'>
             <%= link_to( item_path(item) ) do %>

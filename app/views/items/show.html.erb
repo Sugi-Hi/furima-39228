@@ -8,7 +8,7 @@
     </h2>
 
      <%# 選択した出品商品の詳細 %>
-    <% if @item != nil  %>
+    <% if @item.valid?  %>
       <div class="item-img-content">
         <%= image_tag @item.image ,class:"item-box-img" %>
           <%# 選択商品が売れて出品が無くなるとsold out表示 %>
