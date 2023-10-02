@@ -7,11 +7,11 @@
       <%= @item.item_name %>
     </h2>
 
-     <%# 選択した出品商品の詳細 %>
+    <%# 選択した出品商品の詳細 %>
     <% if @item.valid?  %>
       <div class="item-img-content">
         <%= image_tag @item.image ,class:"item-box-img" %>
-          <%# 選択商品が売れて出品が無くなるとsold out表示 %>
+           <%# 選択商品が売れて出品が無くなるとsold out表示 %>
           <% if @item.order != nil %> 
             <div class='sold-out'>
               <span>Sold Out!!</span>
@@ -32,7 +32,7 @@
 
     <%# 商品が出品中 %>
     <% if @item.order == nil %>
-      <%# ログイン中ユーザーと出品ユーザーが同一人物の場合、編集・購入ボタン表示有り %>
+      <%# ログイン中ユーザーと出品ユーザーが同一人物の場合、編集・削除ボタン表示有り %>
       <% if user_signed_in? && current_user.id == @item.user[:id] %>
         <%= link_to "商品の編集", edit_item_path(@item) , method: :get, class: "item-red-btn" %>
         <p class="or-text">or</p>
