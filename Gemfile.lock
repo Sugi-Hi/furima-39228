@@ -62,8 +62,8 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     aws-eventstream (1.2.0)
-    aws-partitions (1.830.0)
-    aws-sdk-core (3.184.0)
+    aws-partitions (1.834.0)
+    aws-sdk-core (3.185.1)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.651.0)
       aws-sigv4 (~> 1.5)
@@ -114,7 +114,7 @@ GEM
       railties (>= 5.0.0)
     faker (2.22.0)
       i18n (>= 1.8.11, < 2)
-    ffi (1.15.5)
+    ffi (1.16.3)
     globalid (1.1.0)
       activesupport (>= 5.0)
     http-accept (1.7.0)
@@ -148,7 +148,7 @@ GEM
     method_source (1.0.0)
     mime-types (3.5.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2023.0808)
+    mime-types-data (3.2023.1003)
     mini_magick (4.12.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.4)
@@ -162,7 +162,7 @@ GEM
       net-protocol
     net-protocol (0.2.1)
       timeout
-    net-smtp (0.3.3)
+    net-smtp (0.4.0)
       net-protocol
     netrc (0.11.0)
     nio4r (2.5.9)
@@ -171,12 +171,11 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.23.0)
-    parser (3.2.2.3)
+    parser (3.2.2.4)
       ast (~> 2.4.1)
       racc
     payjp (0.0.10)
       rest-client (~> 2.0)
-    pg (1.5.4)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -295,7 +294,7 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.2.2)
     thread_safe (0.3.6)
-    tilt (2.2.0)
+    tilt (2.3.0)
     timeout (0.4.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
@@ -305,7 +304,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
-    unicode-display_width (2.4.2)
+    unicode-display_width (2.5.0)
     unicorn (5.4.1)
       kgio (~> 2.6)
       raindrops (~> 0.7)
@@ -329,7 +328,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.11)
+    zeitwerk (2.6.12)
 
 PLATFORMS
   ruby
@@ -349,7 +348,6 @@ DEPENDENCIES
   mini_magick
   mysql2 (>= 0.4.4)
   payjp
-  pg
   pry-rails
   puma (~> 3.11)
   rails (~> 6.0.0)
