@@ -87,4 +87,4 @@ gem 'payjp'
 
 gem "aws-sdk-s3", require: false
 
-gem 'mail', '2.7.1'
+gem 'mail', '2.7.1'  # 互換性で送信バージョン一致
