@@ -2,7 +2,8 @@ window.addEventListener('load', () => {
 
   // 金額を入力した数値をpriceInputという変数に格納します
   const priceInput = document.getElementById("item-price");
-  
+  console.log("ok");
+
   priceInput.addEventListener("input", () => {
   const inputValue = priceInput.value;
 
