@@ -7,7 +7,7 @@ require("@rails/ujs").start()
 // require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require('../card')
+require("../card")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -18,3 +18,14 @@ require('../card')
 // const imagePath = (name) => images(name, true)
 
 require("../item_price");
+
+
+// エラー対処1
+let promise = chrome.tabs.sendMessage(tabs[0].id, msg);
+promise.catch((error) => {
+    //console.log(error);
+});
+// エラー対処2
+// var promise = Promise.reject(new Error('promise!!!'));
+
+// setTimeout(function() {promise.catch(/* 適切なエラーハンドル */);}

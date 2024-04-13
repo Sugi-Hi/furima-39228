@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
   const priceInput = document.getElementById("item-price");
   console.log("ok");
 
-  priceInput.addEventListener('input', () => {
+  priceInput.addEventListener("input", () => {
   const inputValue = priceInput.value;
 
     const addTaxDom = document.getElementById("add-tax-price");
