@@ -21,11 +21,11 @@ require("../item_price");
 
 
 // エラー対処1
-let promise = chrome.tabs.sendMessage(tabs[0].id, msg);
-promise.catch((error) => {
-    console.log(error);
-});
-// エラー対処2
-var promise = Promise.reject(new Error('promise!!!'));
+// let promise = chrome.tabs.sendMessage(tabs[0].id, msg);
+// promise.catch((error) => {
+//     console.log(error);
+// });
+// // エラー対処2
+// var promise = Promise.reject(new Error('promise!!!'));
 
-setTimeout(function() {promise.catch(/* 適切なエラーハンドル */);}
+// setTimeout(function() {promise.catch(/* 適切なエラーハンドル */);}
